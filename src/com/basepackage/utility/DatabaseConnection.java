@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class DatabaseConnection {
 	public Connection buildConnection() {
-		
+		Connection con = null;
 		try {
 			
 			FileInputStream fis = new FileInputStream(
@@ -15,16 +15,16 @@ public class DatabaseConnection {
 			Properties p = new Properties();
 			p.load(fis);
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/internity", "root", "root");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/internity", "root", "root");
 
 			System.out.println("connection built :" + con);
 			//System.out.println(String.format("getCatalog() returns: %s",con.getCatalog()));
 		} catch (Exception e) {
-			System.out.println("error");
+			System.out.println("Connection failed !!!!!");
 		}
 		
 		
-		Connection con = null;
+		
 		return con;
 
 	}

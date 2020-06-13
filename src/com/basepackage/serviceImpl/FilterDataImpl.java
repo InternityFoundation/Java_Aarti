@@ -1,31 +1,50 @@
 package com.basepackage.serviceImpl;
 
-import java.util.Arrays;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.basepackage.bean.Csv;
 import com.basepackage.service.FilterData;
+import com.basepackage.utility.DatabaseConnection;
 
-public class FilterDataImpl  implements FilterData {
+public class FilterDataImpl implements FilterData {
 
 	@Override
-	public void filter() {
+	public void filterData() {
+		 
+			 ArrayList<Csv> listOfInterns = new ArrayList<Csv>();
+		  try { 
+ 			  Connection con=new DatabaseConnection().buildConnection(); 
+			  String sql =  "select * from interns";
 		
-		try {
-		
-		Csv csvList = null;
-		List<Csv> csvGet = Arrays.asList(csvList);
-		System.out.println();
-		//List<Csv> names = csvList.stream().filter(str->getUsername().length()>5).collect(Collectors.toList());
-		List<Csv> names = csvGet.stream().filter(str-> str.getUsername().length()>6).collect(Collectors.toList());
-		names.forEach(System.out::println);
-		List<Csv> company = csvGet.stream().filter(c->c.getCompany() == "Mi" && c.getUsername().startsWith("A")).collect(Collectors.toList());
-		company.forEach(System.out::println);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		
+		  
+		  PreparedStatement stmt = con.prepareStatement(sql); 
+		  ResultSet rs=stmt.executeQuery();
+		  
+		  
+		 while(rs.next()) { 
+			 listOfInterns.add(new  Csv(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString (5)));
 	}
-}
+		 System.out.println(listOfInterns); 
+		 List<Csv> nameStartWith=listOfInterns.stream().filter(f->f.getUsername().startsWith("A")).
+				 collect(Collectors.toList()); 
+		 System.out.println("intern data whose Name starts with A");
+		 System.out.println(nameStartWith);
+		  
+		   List<Csv> JobLocation=listOfInterns.stream().filter(f->f.getCompany().equals("Mi")).collect( Collectors.toList());
+		   System.out.println("intern data whose job is at Mi");
+		  System.out.println(JobLocation);
+				   stmt.close(); 
+		  }
+		 
+		  catch(Exception e) { 
+			  e.printStackTrace();
+			  }
+		  
+		  }
+	}
+

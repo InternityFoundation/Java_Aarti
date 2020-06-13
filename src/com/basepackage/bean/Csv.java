@@ -7,10 +7,9 @@ public class Csv {
 	private String job_status;
 	private  String company;
 	
-
-
-	
-	public  Csv(String username, String password, String job_status, String company) {
+public Csv(int id, String username, String password, String job_status, String company) {
+		super();
+		Id = id;
 		this.username = username;
 		this.password = password;
 		this.job_status = job_status;
@@ -33,12 +32,6 @@ public class Csv {
 		this.password = password;
 	}
 
-		@Override
-	public String toString()
-	{
-		return "Csv[username="+ username +",password="+ password + ", job_status="+ job_status + ",company="+company +"]";
-				 
-	}
 
 	public String getJob_status() {
 		return job_status;
@@ -63,4 +56,11 @@ public class Csv {
 	public void setId(int id) {
 		Id = id;
 	}
+
+	@Override
+	public String toString() {
+		return "Csv [Id=" + Id + ", username=" + username + ", password=" + password + ", job_status=" + job_status
+				+ ", company=" + company + "]";
+	}
+	
 }
