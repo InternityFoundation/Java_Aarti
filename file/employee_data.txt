@@ -1,4 +1,0 @@
-Aarti ,1234,5678, manager , Mi
-Shivangi ,1368,9767, head , trident_group
-Sakshi , 6578,8765, manager , samsung
-Shriyansh, 6576,8787, Deputy manager, Cisco
