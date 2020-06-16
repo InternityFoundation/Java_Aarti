@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xmlns:c="http://www.springframework.org/schema/c"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ 
+ <bean class="com.spring.ConstructorInjection.Certi"  name="certi">
+  <constructor-arg value ="Java is a programming language......" type="String"/>
+  </bean>
+   <!-- using c schema -->
+   <!--  <bean class="com.spring.ConstructorInjection.Certi"  name="certi"  c:name="java is a programming language"/>-->
+ 
+ 
+  <bean class="com.spring.ConstructorInjection.Person" name="Person">
+  <constructor-arg>
+  <value>Aarti Yadav</value>
+  </constructor-arg>
+ 
+  <constructor-arg value="001" type="int" />
+  
+   <constructor-arg  ref="certi"/>
+   </bean>
+   
+   
+   <!-- Bean for Addition class  to solve ambiguity you use type attribute...-->
+   <!-- index attribute is used to change position a=34, b=12 -->
+   <bean class="com.spring.ConstructorInjection.Addition" name="add">
+   <constructor-arg value="12" type="int" index="1"/>
+   <constructor-arg value="34" type="int"  index="0"/>
+   </bean>
+  
+  
+ 
+  
+  
+ </beans>
+ 
+ 
+ 

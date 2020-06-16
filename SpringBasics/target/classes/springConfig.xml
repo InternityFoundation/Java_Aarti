@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+  <!-- this is a bean for student class variables -->
+   <bean class="com.spring.basic.SpringBasics.Student" name="student1">
+   <property name="studentId">
+   <value>1</value>
+   </property>
+  	<!-- other way to define a property value as an attribute  -->
+   <!-- <property name ="studentName"  value ="1" /> -->
+    <!-- using p schema -->
+   <!--   <bean class="com.spring.basic.SpringBasics.Student" name="student1" 
+    p:studentId="1" p:studentName="AArti" p:studentAddress ="delhi">-->
+   <!--  -->
+   <property name="studentName">
+   <value>Aarti</value>
+   </property>
+   <property name="studentAddress">
+   <value>Delhi</value>
+   </property>
+   </bean>
+   
+   <!-- this is a bean for student class variables for second object -->
+   <bean class="com.spring.basic.SpringBasics.Student" name="student2">
+   <property name="studentId">
+   <value>2</value>
+   </property>
+  	<!-- other way to define a property value as an attribute  -->
+   <!-- <property name ="studentName"  value ="1" /> -->
+  
+   <property name="studentName">
+   <value>Shivay</value>
+   </property>
+   <property name="studentAddress">
+   <value>Mumbai</value>
+   </property>
+   </bean>
+   
+ </beans>
+ 
+ 
+ 

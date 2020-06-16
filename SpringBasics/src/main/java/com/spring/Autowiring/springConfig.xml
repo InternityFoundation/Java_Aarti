@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:p="http://www.springframework.org/schema/p"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ <bean class="com.spring.Autowiring.Address" name="address">
+ <property name="street" value="delhi-6"  />
+ <property name="city" value="Mumbai"  />
+ </bean>
+ <!-- Autowiring can be done on objects only so we are doing it in employee class
+ can be done by 3 ways
+ byName
+ byCnostructor
+ byType
+ -->
+  <!-- -by name means address type me setter call krega aur address name ko check karega variable name -->
+ <bean class="com.spring.Autowiring.Employeee" name="employee"  autowire="byName"/>
+ 
+ 
+ <!-- -by type means address type ki koi bean h ya nhi -->
+<!--  <bean class="com.spring.Autowiring.Employeee" name="employee"  autowire="byType"/>  -->
+ 
+ 
+ <!-- -byConstructor means it will check constructor  -->
+<!--  <bean class="com.spring.Autowiring.Employeee" name="employee"  autowire="cosnstructor"/>  -->
+ 
+ </beans>
+ 
+ 
+ 
